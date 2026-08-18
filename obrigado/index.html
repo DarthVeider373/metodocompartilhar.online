@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Compra Confirmada!</title>
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 15% 50%,
+          rgba(0, 89, 255, 0.38),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 90% 15%,
+          rgba(0, 67, 255, 0.20),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #02052f 0%,
+          #07146c 55%,
+          #02052f 100%
+        );
+
+      color: #ffffff;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 45px 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 760px;
+
+      margin: 0 auto;
+
+      text-align: center;
+    }
+
+    /* CHECK */
+
+    .check {
+      width: 86px;
+      height: 86px;
+
+      margin: 0 auto 22px;
+
+      border-radius: 50%;
+
+      background: #ffc400;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-size: 48px;
+      font-weight: 900;
+
+      color: #06104f;
+
+      box-shadow:
+        0 0 0 8px rgba(255, 196, 0, 0.08),
+        0 0 35px rgba(255, 196, 0, 0.32);
+    }
+
+    /* STATUS */
+
+    .status {
+      display: inline-block;
+
+      padding: 9px 20px;
+      margin-bottom: 20px;
+
+      border-radius: 50px;
+
+      background: #ffc400;
+      color: #07104d;
+
+      font-size: 13px;
+      font-weight: 900;
+
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* TITULO */
+
+    h1 {
+      max-width: 700px;
+
+      margin: 0 auto 18px;
+
+      font-size: clamp(34px, 6vw, 52px);
+      line-height: 1.05;
+
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    h1 span {
+      color: #ffc400;
+    }
+
+    /* SUBTITULO */
+
+    .subtitle {
+      max-width: 650px;
+
+      margin: 0 auto 32px;
+
+      font-size: 20px;
+      line-height: 1.5;
+
+      color: #ffffff;
+    }
+
+    /* BLOCO PRINCIPAL */
+
+    .notice {
+      width: 100%;
+
+      padding: 28px 30px;
+
+      border-radius: 18px;
+
+      border: 1px solid rgba(255, 196, 0, 0.65);
+
+      background: rgba(0, 0, 0, 0.28);
+
+      text-align: left;
+
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+
+      backdrop-filter: blur(4px);
+    }
+
+    .notice-title {
+      margin-bottom: 14px;
+
+      color: #ffc400;
+
+      font-size: 21px;
+      font-weight: 900;
+
+      line-height: 1.3;
+    }
+
+    .notice p {
+      color: #f5f5f5;
+
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    .notice strong {
+      color: #ffffff;
+    }
+
+    /* EMAIL */
+
+    .email-box {
+      width: 100%;
+
+      margin-top: 20px;
+
+      padding: 18px 20px;
+
+      border-radius: 12px;
+
+      background: #ffc400;
+
+      color: #06104f;
+
+      display: flex;
+      align-items: center;
+
+      gap: 15px;
+    }
+
+    .email-icon {
+      flex-shrink: 0;
+
+      width: 46px;
+      height: 46px;
+
+      border: 2px solid #06104f;
+      border-radius: 50%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-size: 23px;
+    }
+
+    .email-text {
+      text-align: left;
+
+      font-size: 16px;
+      line-height: 1.4;
+
+      font-weight: 700;
+    }
+
+    .email-text strong {
+      color: #06104f;
+      font-weight: 900;
+    }
+
+    /* FOOTER */
+
+    .footer-message {
+      margin-top: 27px;
+
+      font-size: 16px;
+      line-height: 1.55;
+
+      color: #d9ddff;
+    }
+
+    .footer-message strong {
+      color: #ffc400;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 600px) {
+
+      body {
+        align-items: flex-start;
+
+        padding:
+          max(30px, env(safe-area-inset-top))
+          16px
+          max(30px, env(safe-area-inset-bottom));
+      }
+
+      .container {
+        max-width: 100%;
+      }
+
+      .check {
+        width: 70px;
+        height: 70px;
+
+        margin-bottom: 18px;
+
+        font-size: 38px;
+      }
+
+      .status {
+        padding: 8px 15px;
+
+        margin-bottom: 17px;
+
+        font-size: 11px;
+        letter-spacing: 0.7px;
+      }
+
+      h1 {
+        font-size: 34px;
+        line-height: 1.08;
+
+        margin-bottom: 16px;
+      }
+
+      .subtitle {
+        margin-bottom: 25px;
+
+        padding: 0 3px;
+
+        font-size: 17px;
+        line-height: 1.5;
+      }
+
+      .notice {
+        padding: 22px 19px;
+
+        border-radius: 15px;
+      }
+
+      .notice-title {
+        font-size: 19px;
+      }
+
+      .notice p {
+        font-size: 15.5px;
+        line-height: 1.6;
+      }
+
+      .email-box {
+        padding: 16px;
+
+        gap: 12px;
+
+        align-items: flex-start;
+      }
+
+      .email-icon {
+        width: 40px;
+        height: 40px;
+
+        font-size: 20px;
+      }
+
+      .email-text {
+        font-size: 14.5px;
+        line-height: 1.45;
+      }
+
+      .footer-message {
+        margin-top: 23px;
+
+        padding: 0 5px;
+
+        font-size: 14.5px;
+      }
+    }
+
+
+    /* CELULARES PEQUENOS */
+
+    @media (max-width: 380px) {
+
+      body {
+        padding-left: 13px;
+        padding-right: 13px;
+      }
+
+      h1 {
+        font-size: 29px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
+
+      .notice {
+        padding: 20px 16px;
+      }
+
+      .notice-title {
+        font-size: 18px;
+      }
+
+      .notice p {
+        font-size: 15px;
+      }
+
+      .email-box {
+        padding: 14px;
+      }
+
+      .email-icon {
+        display: none;
+      }
+
+      .email-text {
+        text-align: center;
+        width: 100%;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <main class="container">
+
+    <div class="check">
+      ✓
+    </div>
+
+
+    <div class="status">
+      Compra confirmada
+    </div>
+
+
+    <h1>
+      Obrigado pela
+      <span>sua compra!</span>
+    </h1>
+
+
+    <p class="subtitle">
+
+      Sua compra foi confirmada com sucesso.
+
+      Estamos preparando tudo para que você tenha acesso
+      às suas aulas o mais rápido possível.
+
+    </p>
+
+
+    <div class="notice">
+
+      <div class="notice-title">
+        ⚠️ Um aviso importante sobre o seu acesso
+      </div>
+
+
+      <p>
+
+        Neste momento, nossas aulas estão sendo migradas
+        de uma plataforma antiga para uma nova plataforma
+        de membros.
+
+        <br><br>
+
+        Por esse motivo, a liberação do seu acesso pode
+        levar um pouco mais de tempo do que o normal.
+
+        <br><br>
+
+        <strong>
+          Mas fique tranquilo: sua compra já está confirmada
+          e você não precisa realizar nenhuma outra ação.
+        </strong>
+
+      </p>
+
+
+      <div class="email-box">
+
+        <div class="email-icon">
+          ✉
+        </div>
+
+        <div class="email-text">
+
+          Assim que o seu acesso estiver liberado,
+          enviaremos todas as informações para o
+
+          <strong>
+            mesmo e-mail que você utilizou para realizar a compra.
+          </strong>
+
+          Fique atento à sua caixa de entrada.
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <p class="footer-message">
+
+      Obrigado pela compreensão e por confiar no nosso trabalho. 💛
+
+      <br>
+
+      <strong>
+        Em breve suas aulas estarão disponíveis para você.
+      </strong>
+
+    </p>
+
+  </main>
+
+</body>
+</html>
